@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital 4T</title>
+    <title>IMSS BIENESTAR</title>
     <style>
         * {
             margin: 0;
@@ -18,17 +18,40 @@
             min-height: 100vh;
         }
         header {
-            background: #800020;
+            background: rgb(97, 18, 50);
             color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            font-size: 16px;
             font-weight: bold;
             letter-spacing: 1px;
         }
+        header img {
+            height: 48px;
+            margin-left: 15px;
+
+        }
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+            margin-right: 20px;
+
+        }
+        .header-buttons a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .header-buttons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
         nav {
-            background: rgb(35, 142, 8);
-            padding: 15px;
+            background: rgb(188, 149, 92);
+            padding: 8px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -56,7 +79,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background: rgb(35, 142, 8);
+            background: rgb(97, 18, 50);
             min-width: 160px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
@@ -74,6 +97,15 @@
         }
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+        .user-info {
+            display: inline-block;
+            margin-left: 15px;
+        }
+        .user-info span {
+            color: white;
+            font-size: 18px;
+            margin-right: 10px;
         }
         .main-content {
             flex: 1;
@@ -120,7 +152,7 @@
             margin-bottom: 10px;
         }
         footer {
-            background: #800020;
+            background: rgb(97, 18, 50);
             color: white;
             text-align: center;
             padding: 20px;
@@ -146,44 +178,62 @@
 <body>
 
 <header>
-    Hospital 4T
+    <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
+     <div class="header-buttons">
+        <a href="#">Trámites</a>
+        <a href="#">Gobierno</a>
+        <a href="#">Búsqueda</a>
+    </div>
 </header>
 
 <nav>
-    <a href="#" onclick="window.location.reload();">Inicio</a>
+    <a href="{{ url('/inicio') }}">Inicio</a>
     <div class="dropdown">
         <a href="#">Servicios</a>
         <div class="dropdown-content">
-            <a href="#">Urgencias</a>
-            <a href="#">Medicina General</a>
-            <a href="#">Cirugía</a>
+            <a href="#urgencias">Urgencias</a>
+            <a href="#medicina-general">Medicina General</a>
+            <a href="#cirugia">Cirugía</a>
         </div>
     </div>
     <div class="dropdown">
         <a href="#">Citas</a>
         <div class="dropdown-content">
-            <a href="formulario">Solicitar</a>
-            <a href="#">Consultar</a>
+            <a href="{{ url('/formulario') }}">Solicitar</a>
+            <a href="{{ url('/consultar-citas') }}">Consultar</a>
         </div>
     </div>
-    <a href="login">Iniciar Sesión</a>
+    @if(Auth::check())
+        <div class="user-info">
+            <span>{{ Auth::user()->name }}</span>
+            <a href="{{ url('/logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+               Cerrar Sesión
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    @else
+        <a href="{{ url('/login') }}">Iniciar Sesión</a>
+    @endif
 </nav>
 
 <div class="main-content">
     <div class="container">
-        <h1>Bienvenido</h1>
+        <h1>Bienvenido{{ Auth::check() ? ', ' . Auth::user()->name : '' }}</h1>
         <p>Nos preocupamos por tu salud y bienestar. Contamos con un equipo de profesionales altamente capacitados.</p>
         <h2>Nuestros Servicios</h2>
         <div class="services">
-            <div class="service">
+            <div class="service" id="urgencias">
                 <h3>Urgencias</h3>
                 <p>Atención médica 24/7 para emergencias.</p>
             </div>
-            <div class="service">
+            <div class="service" id="pediatria">
                 <h3>Pediatría</h3>
                 <p>Especialistas en la salud de los más pequeños.</p>
             </div>
-            <div class="service">
+            <div class="service" id="medicina-general">
                 <h3>Medicina General</h3>
                 <p>Consultas médicas y revisiones generales.</p>
             </div>
@@ -192,7 +242,7 @@
 </div>
 
 <footer>
-    &copy; 2025 Hospital 4T - Todos los derechos reservados.
+    &copy; 2025 IMSS BIENESTAR-GOBIERNO DE MEXICO 2024-2030 - Todos los derechos reservados.
 </footer>
 
 </body>

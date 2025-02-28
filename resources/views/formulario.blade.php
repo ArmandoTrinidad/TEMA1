@@ -79,35 +79,31 @@
 <body>
     <div class="form-container">
         <h2>Solicitar Cita</h2>
-        <form>
+        <form action="{{ route('citas.store') }}" method="POST">
+            @csrf
             <label for="nombre">Nombre Completo</label>
-            <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
-            
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+        
             <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" placeholder="Ej. correo@ejemplo.com" required>
-
+            <input type="email" id="email" name="email" placeholder="Ej. correo@ejemplo.com" required>
+        
             <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" placeholder="Ej. 555-123-4567" required>
-
-            <!-- Comentario: Sección de especialidad y fecha (puedes descomentar si es necesario) -->
-            <!-- 
-            <label for="especialidad">Especialidad</label>
-            <select id="especialidad">
-                <option>Medicina General</option>
-                <option>Pediatría</option>
-                <option>Cardiología</option>
-                <option>Dermatología</option>
-            </select>
-
-            <label for="fecha">Fecha Preferida</label>
-            <input type="date" id="fecha" required>
-            -->
-
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 555-123-4567" required>
+        
             <label for="comentarios">Comentarios</label>
-            <textarea id="comentarios" rows="4" placeholder="Escribe aquí cualquier información adicional..."></textarea>
-
+            <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escribe aquí cualquier información adicional..."></textarea>
+        
             <button type="submit">Solicitar Cita</button>
         </form>
     </div>
 </body>
 </html>
+
+<?php
+use App\Http\Controllers\CitaController;
+
+Route::get('/formulario', function () {
+    return view('formulario');
+})->name('formulario');
+
+Route::post('/solicitar-cita', [CitaController::class, 'store'])->name('citas.store');
