@@ -18,13 +18,13 @@
             min-height: 100vh;
         }
         header {
-            background: rgb(97, 18, 50);
+            background: rgba(19,50,43,255);
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 5px;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             letter-spacing: 1px;
         }
@@ -51,27 +51,38 @@
         }
         nav {
             background: rgb(188, 149, 92);
-            padding: 8px;
+            padding: 6px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Cambiado para alinear a la izquierda */
+            gap: 15px;
         }
+
+        nav img {
+            height: 36px;
+            margin-left: 60px;
+            margin-right: 55px;/* Asegura que la imagen esté a la derecha */
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            padding: 10px 15px;
-            display: inline-block;
+            font-size: 12px;
+            padding: 10px 14px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             border-radius: 5px;
         }
+
         nav a:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
         }
+
         .dropdown {
             position: relative;
             display: inline-block;
@@ -79,7 +90,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background: rgb(97, 18, 50);
+            background: #13322b;
             min-width: 160px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
@@ -152,14 +163,15 @@
             margin-bottom: 10px;
         }
         footer {
-            background: rgb(97, 18, 50);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-        }
+        background: rgba(19,50,43,255);
+        color: white;
+        text-align: left; /* Cambiado de center a left */
+        padding: 20px;
+        margin-top: auto;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
         @media (max-width: 768px) {
             .services {
                 flex-direction: column;
@@ -178,8 +190,10 @@
 <body>
 
 <header>
-    <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
-     <div class="header-buttons">
+    <a href="{{ route('inicio') }}">
+        <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
+    </a>
+        <div class="header-buttons">
         <a href="#">Trámites</a>
         <a href="#">Gobierno</a>
         <a href="#">Búsqueda</a>
@@ -187,14 +201,11 @@
 </header>
 
 <nav>
-    <a href="{{ url('/inicio') }}">Inicio</a>
+    <div>
+        <img src="{{ asset('images/logo_IB.svg') }}" alt="IMMS BIENESTAR" >
+    </div>
     <div class="dropdown">
-        <a href="#">Servicios</a>
-        <div class="dropdown-content">
-            <a href="#urgencias">Urgencias</a>
-            <a href="#medicina-general">Medicina General</a>
-            <a href="#cirugia">Cirugía</a>
-        </div>
+        <a href="#">Servicios de salud IMMS-BIENESTAR</a>
     </div>
     <div class="dropdown">
         <a href="#">Citas</a>
@@ -203,12 +214,18 @@
             <a href="{{ url('/consultar-citas') }}">Consultar</a>
         </div>
     </div>
+    <a href="{{ url('/inicio') }}">Atencion a la salud</a>
+    <a href="{{ url('/inicio') }}">Contacto</a>
+    <a href="{{ url('/inicio') }}">Proteccion de datos personales</a>
+    <a href="{{ url('/inicio') }}">Transparencia</a>
+    <a href="{{ url('/inicio') }}">Accion comunitaria</a>
+
     @if(Auth::check())
         <div class="user-info">
             <span>{{ Auth::user()->name }}</span>
             <a href="{{ url('/logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-               Cerrar Sesión
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar Sesión
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -217,6 +234,7 @@
     @else
         <a href="{{ url('/login') }}">Iniciar Sesión</a>
     @endif
+
 </nav>
 
 <div class="main-content">
@@ -241,9 +259,134 @@
     </div>
 </div>
 
-<footer>
-    &copy; 2025 IMSS BIENESTAR-GOBIERNO DE MEXICO 2024-2030 - Todos los derechos reservados.
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="carousel-item">
+            <img src="{{ asset('images/fondoslide2-min.png') }}" alt="c1">
+            <div class="text-content">
+                <h2>Título 1</h2>
+                <p>Descripción de la imagen 1.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/fondoslide3-min.png') }}" alt="c2">
+            <div class="text-content">
+                <h2>Título 2</h2>
+                <p>Descripción de la imagen 2.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/fondoslide4-min.png') }}" alt="c3">
+            <div class="text-content">
+                <h2>Título 3</h2>
+                <p>Descripción de la imagen 3.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Contenedor principal */
+    .carousel-container {
+        width: 100%;
+        height: 400px; /* Ajusta la altura según necesidad */
+        background-color: rgba(226,226,226,255) /* Color arena */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* Carrusel */
+    .carousel {
+        display: flex;
+        width: 300%;
+        animation: slide 9s infinite ease-in-out;
+    }
+
+    /* Elementos individuales del carrusel */
+    .carousel-item {
+        width: 100vw; /* Ancho completo de la pantalla */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Imágenes */
+    .carousel-item img {
+        width: 40%;
+        max-width: 400px;
+        border-radius: 10px;
+    }
+
+    /* Texto a un lado de la imagen */
+    .text-content {
+        width: 40%;
+        color: #333;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    /* Animación del carrusel */
+    @keyframes slide {
+        0%, 30% { transform: translateX(0); } /* Primera imagen */
+        35%, 65% { transform: translateX(-100vw); } /* Segunda imagen */
+        70%, 100% { transform: translateX(-200vw); } /* Tercera imagen */
+    }
+</style>
+
+
+
+
+
+<footer style="background: #13322b; color: white; padding: 20px; text-align: center; font-size: 14px;">
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div>
+            <img src="{{ asset('images/logo_blanco.svg') }}" alt="Gobierno de México" style="height: 60px;">
+        </div>
+        <div>
+            <h3>Enlaces</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="color: white; text-decoration: none;">Participa</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Publicaciones Oficiales</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Marco Jurídico</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Plataforma Nacional de Transparencia</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Alerta</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Denuncia</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>¿Qué es gob.mx?</h3>
+            <p>Es el portal único de trámites, información y participación ciudadana. <a href="#" style="color: white; font-weight: bold;">LEER MÁS</a></p>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="color: white; text-decoration: none;">Portal de datos abiertos</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Declaración de accesibilidad</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Aviso de privacidad integral</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Aviso de privacidad simplificado</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Términos y Condiciones</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Política de seguridad</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Mapa de sitio</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Denuncia contra servidores públicos</h3>
+            
+            <h3>Síguenos en</h3>
+            <div>
+                <a href="#"><img src="{{ asset('images/facebook.png') }}" alt="Facebook" style="height: 24px; margin: 5px;"></a>
+                <a href="#"><img src="{{ asset('images/x logo.png') }}" alt="X" style="height: 24px; margin: 5px;"></a>
+                <a href="#"><img src="{{ asset('images/instagram.png') }}" alt="Instagram" style="height: 24px; margin: 5px;"></a>
+                <a href="#"><img src="{{ asset('images/tik-tok.png') }}" alt="TikTok" style="height: 24px; margin: 5px;"></a>
+                <a href="#"><img src="{{ asset('images/youtube.png') }}" alt="YouTube" style="height: 24px; margin: 5px;"></a>
+            </div>
+        </div>
+    </div>
 </footer>
+
 
 </body>
 </html>

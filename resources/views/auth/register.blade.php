@@ -12,13 +12,13 @@
         }
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #800020, #f4f4f4);
+            background: linear-gradient(135deg, #13322b, #f4f4f4);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         header {
-            background: rgb(97, 18, 50);
+            background: #13322b;
             color: white;
             display: flex;
             align-items: center;
@@ -132,7 +132,7 @@
             text-decoration: underline;
         }
         footer {
-            background: rgb(97, 18, 50);
+            background: #13322b;
             color: white;
             text-align: center;
             padding: 20px;
@@ -144,8 +144,10 @@
 </head>
 <body> 
     <header>
-        <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
-        <div class="header-text">IMSS BIENESTAR</div>
+        <a href="{{ route('inicio') }}">
+            <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
+        </a>
+        <div class="header-text"></div>
         <div class="header-buttons">
             <a href="#">Trámites</a>
             <a href="#">Gobierno</a>

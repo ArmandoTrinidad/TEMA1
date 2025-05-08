@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitar Cita - Hospital 4T</title>
+    <title>Solicitar Cita - IMSS BIENESTAR</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,70 @@
         }
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #f4f4f4, #e3f2fd);
+            background: linear-gradient(135deg, #13322b, #f4f4f4);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #13322b;
+            color: white;
+            display: flex;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            padding: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        header img {
+            height: 48px;
+            margin-left: 15px;
+
+        }
+        .header-text {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+            margin-right: 20px;
+
+        }
+        .header-buttons a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .header-buttons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        nav {
+            background: rgb(188, 149, 92);
+            padding: 8px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
         }
         .form-container {
             background: white;
@@ -74,9 +133,35 @@
             background-color: rgb(28, 110, 6);
             transform: scale(1.05);
         }
+
+        footer {
+            background: #13322b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <a href="{{ route('inicio') }}">
+            <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
+        </a>
+        <div class="header-text"></div>
+        <div class="header-buttons">
+            <a href="#">Trámites</a>
+            <a href="#">Gobierno</a>
+            <a href="#">Búsqueda</a>
+        </div>
+    </header>
+    <nav>
+        <a href="{{ url('/inicio') }}">INICIO</a>
+        <a href="{{ url('/register') }}">CONSULTAR CITA</a>
+    </nav>
+    
     <div class="form-container">
         <h2>Solicitar Cita</h2>
         <form action="{{ route('citas.store') }}" method="POST">
@@ -96,8 +181,14 @@
             <button type="submit">Solicitar Cita</button>
         </form>
     </div>
+
+    <footer>
+        &copy; 2025 IMSS BIENESTAR-GOBIERNO DE MEXICO 2024-2030 - Todos los derechos reservados.
+    </footer>
+
 </body>
 </html>
+
 
 <?php
 use App\Http\Controllers\CitaController;
