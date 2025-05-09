@@ -339,53 +339,57 @@
     }
 </style>
 
-
-
-
-
-<footer style="background: #13322b; color: white; padding: 20px; text-align: center; font-size: 14px;">
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-        <div>
-            <img src="{{ asset('images/logo_blanco.svg') }}" alt="Gobierno de México" style="height: 60px;">
+<footer style="background: #13322b; color: white; padding: 40px; font-size: 14px;">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: auto;">
+        <div style="flex: 1 1 280px; margin-bottom: 10px;">
+            <img src="{{ asset('images/logo_blanco.svg') }}" alt="Gobierno de México" style="height: 75px;">
         </div>
-        <div>
-            <h3>Enlaces</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li><a href="#" style="color: white; text-decoration: none;">Participa</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Publicaciones Oficiales</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Marco Jurídico</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Plataforma Nacional de Transparencia</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Alerta</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Denuncia</a></li>
+
+        <div style="flex: 1 1 280px; margin-bottom: 40px;">
+            <p style="margin-bottom: 20px; font-size: 20px;">Enlaces</p>
+            <ul style="list-style: none; padding: 0; line-height: 1.5;">
+                <li><a href="https://participa.gob.mx/" style="color: white; font-weight: bold; text-decoration: none;">Participa</a></li>
+                <li><a href="https://www.gob.mx/publicaciones" style="color: white; font-weight: bold; text-decoration: none;">Publicaciones Oficiales</a></li>
+                <li><a href="http://www.ordenjuridico.gob.mx/" style="color: white; font-weight: bold; text-decoration: none;">Marco Jurídico</a></li>
+                <li><a href="https://consultapublicamx.inai.org.mx/vut-web/" style="color: white; font-weight: bold; text-decoration: none;">Plataforma Nacional de Transparencia</a></li>
+                <li><a href="https://alertadores.funcionpublica.gob.mx/" style="color: white; font-weight: bold; text-decoration: none;">Alerta</a></li>
+                <li><a href="https://sidec.funcionpublica.gob.mx/" style="color: white; font-weight: bold; text-decoration: none;">Denuncia</a></li>
             </ul>
         </div>
-        <div>
-            <h3>¿Qué es gob.mx?</h3>
-            <p>Es el portal único de trámites, información y participación ciudadana. <a href="#" style="color: white; font-weight: bold;">LEER MÁS</a></p>
-            <ul style="list-style: none; padding: 0;">
-                <li><a href="#" style="color: white; text-decoration: none;">Portal de datos abiertos</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Declaración de accesibilidad</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Aviso de privacidad integral</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Aviso de privacidad simplificado</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Términos y Condiciones</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Política de seguridad</a></li>
-                <li><a href="#" style="color: white; text-decoration: none;">Mapa de sitio</a></li>
+
+        <div style="flex: 1 1 280px; margin-bottom: 40px;">
+            <p style="margin-bottom: 20px; font-size: 20px;">¿Qué es gob.mx?</p>
+            <p style="margin-bottom: 20px;">Es el portal único de trámites, información y participación ciudadana. 
+                <a href="https://www.gob.mx/que-es-gobmx%20%20btnleermas" style="color: white; font-weight: bold; text-decoration: none;">LEER MÁS</a>
+            </p>
+            <ul style="list-style: none; padding: 0; line-height: 1.5;">
+                <li><a href="https://datos.gob.mx/" style="color: white; font-weight: bold; text-decoration: none;">Portal de datos abiertos</a></li>
+                <li><a href="https://www.gob.mx/accesibilidad" style="color: white; font-weight: bold; text-decoration: none;">Declaración de accesibilidad</a></li>
+                <li><a href="https://www.gob.mx/privacidadintegral" style="color: white; font-weight: bold; text-decoration: none;">Aviso de privacidad integral</a></li>
+                <li><a href="https://www.gob.mx/privacidadsimplificado" style="color: white; font-weight: bold; text-decoration: none;">Aviso de privacidad simplificado</a></li>
+                <li><a href="https://www.gob.mx/terminos" style="color: white; font-weight: bold; text-decoration: none;">Términos y Condiciones</a></li>
+                <li><a href="https://www.gob.mx/terminos#medidas-seguridad-informacion" style="color: white; font-weight: bold; text-decoration: none;">Política de seguridad</a></li>
+                <li><a href="https://www.gob.mx/sitemap" style="color: white; font-weight: bold; text-decoration: none;">Mapa de sitio</a></li>
             </ul>
         </div>
-        <div>
-            <h3>Denuncia contra servidores públicos</h3>
-            
-            <h3>Síguenos en</h3>
-            <div>
-                <a href="#"><img src="{{ asset('images/facebook.png') }}" alt="Facebook" style="height: 24px; margin: 5px;"></a>
-                <a href="#"><img src="{{ asset('images/x logo.png') }}" alt="X" style="height: 24px; margin: 5px;"></a>
-                <a href="#"><img src="{{ asset('images/instagram.png') }}" alt="Instagram" style="height: 24px; margin: 5px;"></a>
-                <a href="#"><img src="{{ asset('images/tik-tok.png') }}" alt="TikTok" style="height: 24px; margin: 5px;"></a>
-                <a href="#"><img src="{{ asset('images/youtube.png') }}" alt="YouTube" style="height: 24px; margin: 5px;"></a>
+
+        <div style="flex: 1 1 200px; margin-bottom: 40px;">
+            <p style="margin-bottom: 20px;">
+                <a href="https://www.gob.mx/tramites/ficha/presentacion-de-quejas-y-denuncias-en-la-sfp/SFP54" style="color: white; font-weight: bold; text-decoration: none;">Denuncia en contra de servidores publicos</a>
+            </p>
+            <p style="margin-bottom: 20px; font-size: 20px;">Síguenos en</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://www.facebook.com/SSIMSSBIENESTAR/"><img src="{{ asset('images/facebook.png') }}" alt="Facebook" style="height: 24px;"></a>
+                <a href="https://imssbienestar.gob.mx/assets/img/contacto/x%20logo.png"><img src="{{ asset('images/x logo.png') }}" alt="X" style="height: 24px;"></a>
+                <a href="https://imssbienestar.gob.mx/assets/img/contacto/instagram.png"><img src="{{ asset('images/instagram.png') }}" alt="Instagram" style="height: 24px;"></a>
+                <a href="https://imssbienestar.gob.mx/assets/img/contacto/tik-tok.png"><img src="{{ asset('images/tik-tok.png') }}" alt="TikTok" style="height: 24px;"></a>
+                <a href="https://imssbienestar.gob.mx/assets/img/contacto/youtube.png"><img src="{{ asset('images/youtube.png') }}" alt="YouTube" style="height: 24px;"></a>
+                <a href="https://imssbienestar.gob.mx/assets/img/contacto/threads.png"><img src="{{ asset('images/threads.png') }}" alt="Threads" style="height: 24px;"></a>
             </div>
         </div>
     </div>
 </footer>
+
 
 
 </body>
