@@ -145,14 +145,14 @@
 </head>
 <body>
     <header>
-        <a href="{{ route('inicio') }}">
+        <a href="https://www.gob.mx">
             <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
         </a>
         <div class="header-text"></div>
         <div class="header-buttons">
-            <a href="#">Trámites</a>
-            <a href="#">Gobierno</a>
-            <a href="#">Búsqueda</a>
+            <a href="https://www.gob.mx/tramites">Trámites</a>
+            <a href="https://www.gob.mx/gobierno">Gobierno</a>
+            <a href="https://www.gob.mx/busqueda">Búsqueda</a>
         </div>
     </header>
     <nav>

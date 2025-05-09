@@ -143,18 +143,27 @@
             font-size: 14px;
             letter-spacing: 0.5px;
         }
+
+        .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
     </style>
 </head>
 <body>
     <header>
-        <a href="{{ route('inicio') }}">
+        <a href="https://www.gob.mx">
             <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
         </a>
         <div class="header-text"></div>
         <div class="header-buttons">
-            <a href="#">Trámites</a>
-            <a href="#">Gobierno</a>
-            <a href="#">Búsqueda</a>
+            <a href="https://www.gob.mx/tramites">Trámites</a>
+            <a href="https://www.gob.mx/gobierno">Gobierno</a>
+            <a href="https://www.gob.mx/busqueda">Búsqueda</a>
         </div>
     </header>
     <nav>
@@ -162,6 +171,7 @@
         <a href="{{ url('/register') }}">CONSULTAR CITA</a>
     </nav>
     
+    <div class="main-content">
     <div class="form-container">
         <h2>Solicitar Cita</h2>
         <form action="{{ route('citas.store') }}" method="POST">
@@ -176,10 +186,11 @@
             <input type="tel" id="telefono" name="telefono" placeholder="Ej. 555-123-4567" required>
         
             <label for="comentarios">Comentarios</label>
-            <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escribe aquí cualquier información adicional..."></textarea>
+            <textarea id="comentarios" name="comentarios" rows="2" placeholder="Escribe aquí cualquier información adicional..."></textarea>
         
             <button type="submit">Solicitar Cita</button>
         </form>
+    </div>
     </div>
 
     <footer>

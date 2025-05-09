@@ -29,8 +29,8 @@
             letter-spacing: 1px;
         }
         header img {
-            height: 48px;
-            margin-left: 15px;
+            height: 44px;
+            margin-left: 12px;
 
         }
         .header-buttons {
@@ -190,13 +190,13 @@
 <body>
 
 <header>
-    <a href="{{ route('inicio') }}">
+    <a href="https://www.gob.mx">
         <img src="{{ asset('images/logo_blanco.svg') }}" alt="Logo">
     </a>
         <div class="header-buttons">
-        <a href="#">Trámites</a>
-        <a href="#">Gobierno</a>
-        <a href="#">Búsqueda</a>
+        <a href="https://www.gob.mx/tramites">Trámites</a>
+        <a href="https://www.gob.mx/gobierno">Gobierno</a>
+        <a href="https://www.gob.mx/busqueda">Búsqueda</a>
     </div>
 </header>
 
@@ -214,11 +214,11 @@
             <a href="{{ url('/consultar-citas') }}">Consultar</a>
         </div>
     </div>
-    <a href="{{ url('/inicio') }}">Atencion a la salud</a>
-    <a href="{{ url('/inicio') }}">Contacto</a>
-    <a href="{{ url('/inicio') }}">Proteccion de datos personales</a>
-    <a href="{{ url('/inicio') }}">Transparencia</a>
-    <a href="{{ url('/inicio') }}">Accion comunitaria</a>
+    <a href="{{ url('/#') }}">Atencion a la salud</a>
+    <a href="{{ url('/#') }}">Contacto</a>
+    <a href="{{ url('https://imssbienestar.gob.mx/transparencia.html#proteccion_datos_personales') }}">Proteccion de datos personales</a>
+    <a href="{{ url('/#') }}">Transparencia</a>
+    <a href="{{ url('/#') }}">Accion comunitaria</a>
 
     @if(Auth::check())
         <div class="user-info">
@@ -389,8 +389,6 @@
         </div>
     </div>
 </footer>
-
-
 
 </body>
 </html>
